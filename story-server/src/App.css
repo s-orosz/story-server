@@ -482,3 +482,237 @@ button:focus-visible,
     padding: 12px 16px;
   }
 }
+
+/* Avatar editor */
+
+.avatar-editor {
+  width: min(100%, 1000px);
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.avatar-editor:focus,
+.avatar-editor:focus-visible {
+  outline: none;
+}
+
+.avatar-editor h2,
+.avatar-editor h3 {
+  margin-top: 0;
+}
+
+.avatar-editor p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.avatar-editor-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.avatar-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.avatar-editor button,
+.avatar-editor-toggle {
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface-sidebar);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.avatar-editor button:hover,
+.avatar-editor-toggle:hover {
+  background: var(--surface-hover);
+}
+
+.avatar-editor button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.avatar-editor button[aria-pressed="true"] {
+  border-color: var(--accent);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.avatar-editing-canvas {
+  position: relative;
+  padding: 0;
+  border: 0;
+  margin-bottom: 20px;
+  overflow: hidden;
+  outline: 1px solid var(--border);
+}
+
+.avatar-interaction-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.avatar-editor .avatar-shape-target {
+  appearance: none;
+  display: block;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  background: transparent;
+  box-shadow: none;
+  touch-action: none;
+  pointer-events: auto;
+  cursor: move;
+}
+
+.avatar-editor .avatar-shape-target:focus,
+.avatar-editor .avatar-shape-target:focus-visible {
+  box-shadow: none;
+}
+
+.avatar-layer-list {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.avatar-layer-list button {
+  width: 100%;
+  text-align: left;
+}
+
+.avatar-properties {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+  margin-top: 24px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.avatar-property-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.avatar-properties .avatar-field {
+  min-width: 0;
+  margin-bottom: 0;
+}
+
+.avatar-property-grid input {
+  width: 100%;
+}
+
+.avatar-property-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.avatar-property-actions .avatar-toolbar {
+  flex: 1;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.avatar-property-actions .avatar-color-field {
+  margin-bottom: 0;
+}
+
+.avatar-color-field {
+  flex: 0 0 auto;
+}
+
+.avatar-field {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.avatar-field input,
+.avatar-field textarea {
+  min-width: 0;
+  max-width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface-rail);
+  color: var(--text-primary);
+  font: inherit;
+}
+
+.avatar-field input[type="color"] {
+  width: 64px;
+  height: 44px;
+  padding: 4px;
+}
+
+.avatar-field input:focus-visible,
+.avatar-field textarea:focus-visible,
+.avatar-css-panel summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.avatar-css-panel {
+  margin-top: 32px;
+}
+
+.avatar-css-panel summary {
+  margin-bottom: 16px;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.avatar-css-panel textarea {
+  width: 100%;
+  min-height: 280px;
+  resize: vertical;
+  font-family: monospace;
+  line-height: 1.5;
+}
+
+.avatar-editor-screen {
+  min-height: 100vh;
+  background: var(--surface-main);
+}
+
+.avatar-editor-screen > .avatar-editor-toggle {
+  margin: 16px 24px 0;
+}
+
+@media (max-width: 700px) {
+  .avatar-editor {
+    padding: 24px 16px;
+  }
+
+  .avatar-editor-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+}
